@@ -1,4 +1,4 @@
-dist: xenial
+os: windows
 addons:
   snaps:
   - name: dotnet-sdk
@@ -11,4 +11,4 @@ mono: none
 script:
   - sudo snap alias dotnet-sdk.dotnet dotnet
   - dotnet build --configuration Release
-  - dotnet test
+  - dotnet test --collect:"Code Coverage"

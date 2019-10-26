@@ -10,5 +10,6 @@ solution: ZDragon.NET.sln
 mono: none
 script:
   - choco install dotnetcore
+  - choco install dotnetcore-sdk
   - dotnet build --configuration Release
   - dotnet test --collect:"Code Coverage"

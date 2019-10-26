@@ -9,6 +9,6 @@ language: csharp
 solution: ZDragon.NET.sln
 mono: none
 script:
-  - sudo snap alias dotnet-sdk.dotnet dotnet
+  - choco install dotnetcore
   - dotnet build --configuration Release
   - dotnet test --collect:"Code Coverage"

@@ -44,10 +44,10 @@ namespace Compiler.AST
             return new ASTAlias
             {
                 Name = (string)this.Name.Clone(),
-                Type = ObjectCopier.CopyList<ASTTypeDefinition>(this.Type.ToList()),
-                Restrictions = ObjectCopier.CopyList<ASTRestriction>(this.Restrictions.ToList()),
-                Annotations = ObjectCopier.CopyList<ASTAnnotation>(this.Annotations.ToList()),
-                Directives = ObjectCopier.CopyList<ASTDirective>(this.Directives.ToList())
+                Type = ObjectCloner.CloneList<ASTTypeDefinition>(this.Type.ToList()),
+                Restrictions = ObjectCloner.CloneList<ASTRestriction>(this.Restrictions.ToList()),
+                Annotations = ObjectCloner.CloneList<ASTAnnotation>(this.Annotations.ToList()),
+                Directives = ObjectCloner.CloneList<ASTDirective>(this.Directives.ToList())
             };
         }
     }

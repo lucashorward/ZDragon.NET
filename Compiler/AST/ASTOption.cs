@@ -31,7 +31,7 @@ namespace Compiler.AST
 
         public object Clone()
         {
-            return new ASTOption((string)this.Value.Clone(), ObjectCopier.CopyList<ASTAnnotation>(this.Annotations.ToList()));
+            return new ASTOption((string)this.Value.Clone(), ObjectCloner.CloneList<ASTAnnotation>(this.Annotations.ToList()));
         }
     }
 }

@@ -54,7 +54,7 @@ namespace Compiler.AST
 
         public object Clone()
         {
-            return new ASTRestriction((string)this.Key.Clone(), (string)this.Value.Clone(),ObjectCopier.CopyList<ASTAnnotation>(this.Annotations.ToList()) , (Compiler.Token)this.Token.Clone(), this.Depth);
+            return new ASTRestriction((string)this.Key.Clone(), (string)this.Value.Clone(),ObjectCloner.CloneList<ASTAnnotation>(this.Annotations.ToList()) , (Compiler.Token)this.Token.Clone(), this.Depth);
         }
     }
 }

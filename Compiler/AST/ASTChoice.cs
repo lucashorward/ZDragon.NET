@@ -23,10 +23,7 @@ namespace Compiler.AST
         {
             if (parser.HasNext()) parser.Next();
             var nameId = parser.Consume(TokenType.Identifier);
-            this.Name = nameId.Value;
             parser.Consume(TokenType.Equal);
-            this.Type = ASTTypeDefinition.ParseType(parser).ToList();
-            this.Options = ASTOption.Parse(parser).ToList();
             parser.TryConsume(TokenType.EndStatement);
             parser.Consume(TokenType.ContextEnded);
             var result = new ASTChoice(nameId.Value, ASTTypeDefinition.ParseType(parser).ToList(), ASTOption.Parse(parser).ToList());
@@ -36,12 +33,11 @@ namespace Compiler.AST
         public object Clone()
         {
             return new ASTChoice
-            {
-                Name = (string)this.Name.Clone(),
-                Type = ObjectCopier.CopyList<ASTTypeDefinition>(this.Type),
-                // Cannot clone options due to read-only flag
-                //Options = ObjectCopier.CopyList<ASTOption>(this.Options)
-            };
+            (
+                (string)this.Name.Clone(),
+                ObjectCloner.CloneList<ASTTypeDefinition>(this.Type),
+                ObjectCloner.CloneList<ASTOption>(this.Options)
+            );
         }
     }
 }

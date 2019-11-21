@@ -31,8 +31,8 @@ namespace Compiler.AST
             {
                   Name = this.Name,
                   Type = this.Type.Select(t => new ASTTypeDefinition(t.Value)),
-                  Annotations = ObjectCopier.CopyList<ASTAnnotation>(this.Annotations.ToList()),
-                  Restrictions = ObjectCopier.CopyList<ASTRestriction>(this.Restrictions.ToList())
+                  Annotations = ObjectCloner.CloneList<ASTAnnotation>(this.Annotations.ToList()),
+                  Restrictions = ObjectCloner.CloneList<ASTRestriction>(this.Restrictions.ToList())
             };
         }
     }

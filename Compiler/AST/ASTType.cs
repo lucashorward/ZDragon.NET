@@ -125,11 +125,11 @@ Missing type body. If you use an '=' sign you should have at least one field.", 
             return new ASTType
             {
                 Name = (string)this.Name.Clone(),
-                Annotations = ObjectCopier.CopyList<ASTAnnotation>(this.Annotations.ToList()),
-                Directives = ObjectCopier.CopyList<ASTDirective>(this.Directives.ToList()),
-                Parameters = ObjectCopier.CopyList<String>(this.Parameters.ToList()),
-                Extensions = ObjectCopier.CopyList<String>(this.Extensions.ToList()),
-                Fields = ObjectCopier.CopyList<ASTTypeField>(this.Fields.ToList())
+                Annotations = ObjectCloner.CloneList<ASTAnnotation>(this.Annotations.ToList()),
+                Directives = ObjectCloner.CloneList<ASTDirective>(this.Directives.ToList()),
+                Parameters = ObjectCloner.CloneList<String>(this.Parameters.ToList()),
+                Extensions = ObjectCloner.CloneList<String>(this.Extensions.ToList()),
+                Fields = ObjectCloner.CloneList<ASTTypeField>(this.Fields.ToList())
             };
         }
     }

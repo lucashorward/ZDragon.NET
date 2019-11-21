@@ -37,8 +37,8 @@ namespace Compiler.AST
             return new ASTDataOption
             {
                 Name = (string)this.Name.Clone(),
-                Parameters = ObjectCopier.CopyList<string>(this.Parameters.ToList()),
-                Annotations = ObjectCopier.CopyList<ASTAnnotation>(this.Annotations.ToList()),
+                Parameters = ObjectCloner.CloneList<string>(this.Parameters.ToList()),
+                Annotations = ObjectCloner.CloneList<ASTAnnotation>(this.Annotations.ToList()),
             };
         }
     }

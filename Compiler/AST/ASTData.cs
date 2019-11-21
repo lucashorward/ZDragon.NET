@@ -44,10 +44,10 @@ namespace Compiler.AST
             return new ASTData
             {
                 Name = (string)this.Name.Clone(),
-                Parameters = ObjectCopier.CopyList<string>(this.Parameters.ToList()),
-                Annotations = ObjectCopier.CopyList<ASTAnnotation>(this.Annotations.ToList()),
-                Directives = ObjectCopier.CopyList<ASTDirective>(this.Directives.ToList()),
-                Options = ObjectCopier.CopyList<ASTDataOption>(this.Options.ToList())
+                Parameters = ObjectCloner.CloneList<string>(this.Parameters.ToList()),
+                Annotations = ObjectCloner.CloneList<ASTAnnotation>(this.Annotations.ToList()),
+                Directives = ObjectCloner.CloneList<ASTDirective>(this.Directives.ToList()),
+                Options = ObjectCloner.CloneList<ASTDataOption>(this.Options.ToList())
             };
         }
     }

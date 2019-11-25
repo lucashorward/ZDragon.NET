@@ -8,15 +8,15 @@ if [ -z "$(git status --porcelain)" ]; then
 		"Mapper.HTML/Mapper.HTML.csproj" "Mapper.JSON/Mapper.JSON.csproj"
 		"CLI/Program.cs"
 		)
-		#git checkout master
+		git checkout master
 
 		for FILE in "${FILES[@]}"
 		do
 			sed -i '' -e "s/$EXISTINGTAG/$NEWTAG/g" $FILE
 		done
-		#git add .
-		#git commit -m "Release $NEWTAG"
-		#git push origin master
+		git add .
+		git commit -m "Release $NEWTAG"
+		git push origin master
 else 
 	# uncommited changes
 	echo "You have uncommited changes. Stash, commit or remove them. Aborting."

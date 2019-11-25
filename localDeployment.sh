@@ -1,10 +1,10 @@
-﻿﻿NEWTAG=$1
+﻿#﻿NEWTAG=$1
 EXISTINGTAG="${2:-$(git describe --tag --abbrev=0)}"
-echo $NEWTAG
+echo "$1"
 echo $EXISTINGTAG
 if [ -z "$(git status --porcelain)" ]; then 
     # clean working dir
-    read -p "This will replace $EXISTINGTAG with $NEWTAG . Are you sure? " -n 1 -r
+    read -p "This will replace $EXISTINGTAG with "$1" . Are you sure? " -n 1 -r
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         FILES=("ZDragon.NET.sln" "CLI/CLI.csproj" "Compiler/Compiler.csproj" "CompilerTests/CompilerTests.csproj" "Mapper.XSD/Mapper.XSD.csproj" "README.md"

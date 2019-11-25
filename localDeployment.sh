@@ -11,7 +11,7 @@ if [ -z "$(git status --porcelain)" ]; then
         "Mapper.HTML/Mapper.HTML.csproj" "Mapper.JSON/Mapper.JSON.csproj"
         "CLI/Program.cs"
         )
-        git checkout master
+        git checkout master 
 
         for FILE in "${FILES[@]}"
         do
@@ -20,9 +20,8 @@ if [ -z "$(git status --porcelain)" ]; then
         git add .
         git commit -m "Release $NEWTAG"
         git tag $NEWTAG
-        git push origin master --tags
-    
-        else
+        git push origin master --tags 
+    else
         echo "Exiting"
         exit 0
     fi
@@ -31,7 +30,3 @@ else
     echo "You have uncommited changes. Stash, commit or remove them. Aborting."
     exit 1
 fi
-
-function askConfirm() {
-    
-}

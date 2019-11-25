@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 NEWTAG=$1
+=======
+﻿NEWTAG=$1
+>>>>>>> Stashed changes
 EXISTINGTAG="${2:-$(git describe --tag --abbrev=0)}"
 # "${1:-/usr/local/bin/}"
 echo $EXISTINGTAG
@@ -16,7 +20,12 @@ if [ -z "$(git status --porcelain)" ]; then
 		done
 		git add .
 		git commit -m "Release $NEWTAG"
+<<<<<<< Updated upstream
 		git push origin master
+=======
+        git tag $NEWTAG
+		git push origin master --tags
+>>>>>>> Stashed changes
 else 
 	# uncommited changes
 	echo "You have uncommited changes. Stash, commit or remove them. Aborting."

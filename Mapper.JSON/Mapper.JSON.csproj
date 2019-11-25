@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <ReleaseVersion>0.0.3</ReleaseVersion>
+    <ReleaseVersion></ReleaseVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 

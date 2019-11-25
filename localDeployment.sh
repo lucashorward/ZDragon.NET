@@ -1,6 +1,6 @@
-﻿#﻿NEWTAG=$1
+﻿# Checkout first to get correct tag
+git checkout master 
 EXISTINGTAG="${2:-$(git describe --tag --abbrev=0)}"
-echo "$1"
 echo $EXISTINGTAG
 if [ -z "$(git status --porcelain)" ]; then 
     # clean working dir
@@ -11,15 +11,14 @@ if [ -z "$(git status --porcelain)" ]; then
         "Mapper.HTML/Mapper.HTML.csproj" "Mapper.JSON/Mapper.JSON.csproj"
         "CLI/Program.cs"
         )
-        git checkout master 
 
         for FILE in "${FILES[@]}"
         do
-            sed -i '' -e "s/$EXISTINGTAG/$NEWTAG/g" $FILE
+            sed -i '' "s/$EXISTINGTAG/$1/g" $FILE
         done
         git add .
-        git commit -m "Release $NEWTAG"
-        git tag $NEWTAG
+        git commit -m "Release "$1""
+        git tag "$1"
         git push origin master --tags 
     else
         echo "Exiting"
